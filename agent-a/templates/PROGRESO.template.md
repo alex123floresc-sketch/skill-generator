@@ -23,4 +23,4 @@ Skill asociada: `{{NOMBRE}}`
 ## Bitácora de sesiones
 
 ### {{FECHA}}
-- Proyecto iniciado con CP V1.
+- Proyecto iniciado con agent-a.

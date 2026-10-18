@@ -1,4 +1,4 @@
-# Banco de preguntas (Paso 4)
+# Banco de preguntas (Paso 4 de agent-a)
 
 Máximo 5 por ronda. Elige solo las que el pedido no responde y que cambian cómo se construye la skill. Ofrece opciones cuando sea posible para que el usuario responda rápido.
 

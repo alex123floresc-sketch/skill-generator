@@ -14,7 +14,7 @@ GitHub es la **fuente de verdad**: la versión oficial de cada skill está en el
 ```bash
 git clone https://github.com/<usuario>/skill-generator.git
 cd skill-generator && ./install.sh            # instala todas
-./install.sh cp-web-mi-proyecto               # instala una
+./install.sh a-web-mi-proyecto               # instala una
 ```
 
 **PROGRESO.md:** en la raíz del proyecto (o en `docs/`), versionado junto al código.

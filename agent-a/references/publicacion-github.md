@@ -1,12 +1,14 @@
-# Publicación en GitHub (Paso 7)
+# Publicación en GitHub (§7 de SKILL.md)
 
 Repositorio por defecto: `skill-generator` del usuario. Estructura esperada:
 
 ```
 skill-generator/
-├── cp-v1/                 ← esta skill (la fábrica)
+├── agent-a/               ← agente principal (genera, administra, selecciona)
 ├── skills/
 │   ├── REGISTRO.md        ← índice de skills generadas
+│   ├── uso.json           ← historial de uso (para la selección)
+│   ├── _archivo/          ← skills archivadas
 │   └── <nombre>/          ← cada skill generada
 ├── install.sh
 └── README.md
@@ -23,12 +25,12 @@ skill-generator/
 4. **Copiar** la skill a `skills/<nombre>/` (si ya existe, reemplazar solo esa carpeta).
 5. **Registrar**:
    ```bash
-   python3 cp-v1/scripts/registry.py agregar --raiz skills --skill skills/<nombre>
+   python3 agent-a/scripts/manage.py registrar --raiz skills --skill skills/<nombre>
    ```
-6. **Escanear el repo completo** una vez más: `python3 cp-v1/scripts/scan_secrets.py .`
+6. **Escanear el repo completo** una vez más: `python3 agent-a/scripts/scan_secrets.py .`
 7. **Commit y push**:
    ```bash
-   git add skills/<nombre> skills/REGISTRO.md
+   git add skills/<nombre> skills/REGISTRO.md skills/uso.json
    git commit -m "skill(<nombre>): v<version> — <resumen del cambio>"
    git push
    ```

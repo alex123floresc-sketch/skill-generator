@@ -5,7 +5,7 @@ description: {{DESCRIPCION}}
 
 # {{TITULO}}
 
-> Skill generada con CP V1 · Intención: **{{INTENCION}}** · Dominio: **{{DOMINIO}}** · Versión: **1.0** · Creada: {{FECHA}}
+> Skill gestionada por agent-a · Intención: **{{INTENCION}}** · Dominio: **{{DOMINIO}}** · Versión: **1.0** · Creada: {{FECHA}}
 
 ## Objetivo del proyecto
 

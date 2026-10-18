@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Instala CP V1 y las skills generadas en Claude Code (~/.claude/skills).
+# Instala agent-a y las skills generadas en Claude Code (~/.claude/skills).
 # Uso:
-#   ./install.sh                 # instala cp-v1 y todas las skills de skills/
-#   ./install.sh cp-web-algo     # instala cp-v1 y solo esa skill
+#   ./install.sh                     # instala agent-a y todas las skills de skills/
+#   ./install.sh a-web-algo          # instala agent-a y solo esa skill
 #   DESTINO=.claude/skills ./install.sh   # instalar como skills del proyecto
 set -euo pipefail
 
@@ -23,14 +23,27 @@ copiar() {
     echo "Instalando:   $nombre"
   fi
   cp -R "$origen" "$DESTINO/$nombre"
+  rm -rf "$DESTINO/$nombre/__pycache__" "$DESTINO/$nombre/scripts/__pycache__"
 }
 
-copiar "$RAIZ/cp-v1"
+# La versión anterior (cp-v1) se retira sin borrarla, para que no compita con agent-a.
+if [ -d "$DESTINO/cp-v1" ]; then
+  RETIRO="$(dirname "$DESTINO")/skills-archivo"
+  mkdir -p "$RETIRO"
+  mv "$DESTINO/cp-v1" "$RETIRO/cp-v1-$(date +%Y%m%d%H%M%S)"
+  echo "Retirada:     cp-v1 (movida a $RETIRO)"
+fi
+
+copiar "$RAIZ/agent-a"
 
 if [ $# -gt 0 ]; then
   for s in "$@"; do copiar "$RAIZ/skills/$s"; done
 else
-  for d in "$RAIZ"/skills/*/; do [ -d "$d" ] && copiar "${d%/}"; done
+  for d in "$RAIZ"/skills/*/; do
+    [ -d "$d" ] || continue
+    [ "$(basename "$d")" = "_archivo" ] && continue
+    copiar "${d%/}"
+  done
 fi
 
 echo "Listo. Skills en: $DESTINO (inicia una sesión nueva de Claude Code para cargarlas)."

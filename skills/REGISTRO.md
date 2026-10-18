@@ -1,6 +1,6 @@
 # Registro de skills
 
-Skills generadas con CP V1. Este archivo lo mantiene `cp-v1/scripts/registry.py`.
+Índice generado por `agent-a/scripts/manage.py`. No editar a mano.
 
-| Skill | Versión | Intención | Dominio | Descripción |
-|---|---|---|---|---|
+| Skill | Versión | Intención | Dominio | Usos | Descripción |
+|---|---|---|---|---|---|
